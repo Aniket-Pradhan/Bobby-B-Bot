@@ -4,6 +4,8 @@ from aiohttp import web
 from gidgethub import routing, sansio
 from gidgethub import aiohttp as gh_aiohttp
 
+from utils import get_random_quote()
+
 router = routing.Router()
 
 
@@ -17,7 +19,7 @@ async def issue_opened_event(event, gh, *args, **kwargs):
 	body = event.data["issue"]["body"]
 
 	if "bobby b" in body.lower():
-		message = "BOW YA SHITS!!"
+		message = get_random_quote()
 		await gh.post(url, data={"body": message})
 
 
@@ -31,7 +33,7 @@ async def issue_comment_event(event, gh, *args, **kwargs):
 	body = event.data["comment"]["body"]
 
 	if "bobby b" in body.lower():
-		message = "BOW YA SHITS!!"
+		message = get_random_quote()
 		await gh.post(url, data={"body": message})
 
 async def main(request):
