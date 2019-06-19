@@ -1,13 +1,18 @@
 import os
+import json
 import aiohttp
+from random import randint
 from aiohttp import web
 from gidgethub import routing, sansio
 from gidgethub import aiohttp as gh_aiohttp
 
-from utils import get_random_quote()
-
 router = routing.Router()
 
+
+def get_random_quote():
+	quotes = json.loads(open('quotes.json').read())
+	ind = randint(0, len(quotes))
+	return quotes[ind]
 
 @router.register("issues", action="opened")
 async def issue_opened_event(event, gh, *args, **kwargs):
