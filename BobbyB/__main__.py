@@ -22,7 +22,7 @@ async def issue_opened_event(event, gh, *args, **kwargs):
 		await gh.post(url, data={"body": message})
 
 
-@router.register("issue_comment", action="opened")
+@router.register("issue_comment", action="created")
 async def issue_comment_event(event, gh, *args, **kwargs):
 	"""
 	Whenever an issue is commented upon, greet the author and say thanks.
