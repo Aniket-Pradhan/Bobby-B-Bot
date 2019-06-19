@@ -26,6 +26,7 @@ async def issue_comment_event(event, gh, *args, **kwargs):
 	"""
 	Whenever an issue is commented upon, greet the author and say thanks.
 	"""
+	print("WORKING!!!")
 	url = event.data["issue"]["comments_url"]
 	body = event.data["comment"]["body"]
 	author = event.data["issue"]["user"]["login"]
