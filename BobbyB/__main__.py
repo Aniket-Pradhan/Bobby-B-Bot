@@ -12,6 +12,7 @@ async def issue_opened_event(event, gh, *args, **kwargs):
 	"""
 	Whenever an issue is opened, greet the author and say thanks.
 	"""
+	print("aniketWORKING!!!")
 	url = event.data["issue"]["comments_url"]
 	body = event.data["issue"]["body"]
 	author = event.data["issue"]["user"]["login"]
