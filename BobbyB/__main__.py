@@ -8,7 +8,7 @@ from gidgethub import aiohttp as gh_aiohttp
 
 router = routing.Router()
 
-def user_default_quotes():
+def use_default_quotes():
 	quotes = [
 		"You want to know the horrible truth? I can't even remember what she looked like. I only know she was the one thing I ever wanted... someone took her away from me, and seven kingdoms couldn't fill the hole she left behind.",
 		"You heard the Hand, the king's too fat for his armor! Go find the breastplate stretcher! NOW!",
@@ -30,12 +30,7 @@ def user_default_quotes():
 	return quotes
 
 def get_random_quote():
-	try:
-		with open("quotes.json", "r") as read_file:
-			quotes = json.load(read_file)
-	except:
-		print("ERROR")
-		quotes = use_default_quotes()
+	quotes = use_default_quotes()
 	ind = randint(0, len(quotes))
 	return quotes[ind]
 
